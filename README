@@ -1,7 +1,7 @@
-URIS
+[![Build Status](https://travis-ci.org/compwron/open4.svg?branch=master)](https://travis-ci.org/compwron/open4)
 
-  http://rubyforge.org/projects/codeforpeople/
-  http://www.codeforpeople.com/lib/ruby/
+Open4
+=====
 
 SYNOPSIS
 
@@ -93,7 +93,7 @@ SAMPLES
   stdout/stderr.  an exception is thrown if the exec'd cmd fails (nonzero
   exitstatus) unless the option 'raise'=>false is given
   ----------------------------------------------------------------------------
-  
+
     harp: > cat sample/spawn.rb
     require 'open4'
     include Open4
@@ -237,7 +237,7 @@ HISTORY
 
       cmd = ' ruby -e" 42.times{ puts 0b101010 } " '
       include Open4
-      spawn cmd, :stdout => lambda{|buf| puts buf} 
+      spawn cmd, :stdout => lambda{|buf| puts buf}
 
 
   0.9.5:
@@ -246,7 +246,7 @@ HISTORY
       with multiple threads (aka background) because ruby cannot cause green
       threads to have an actuall different working dir.  the moral is that the
       :cwd/'cwd' keyword to spawn will work with 0 or 1 threads in effect.
-  
+
   0.9.4:
     - patch to #background from Corey Jewett
 
@@ -306,7 +306,7 @@ HISTORY
 
         include Open4
 
-        spawn 'ruby -e "exit 42"'                 # raises 
+        spawn 'ruby -e "exit 42"'                 # raises
         spawn 'ruby -e "exit 42"', :status=>true  # ok, returns status
         spawn 'ruby -e "exit 42"', :status=>42    # raises if status != 42
         spawn 'ruby -e "exit 42"', :status=>0,42  # raises if status != 0||42
@@ -322,8 +322,8 @@ HISTORY
     - added :status switch, which will always simply return the status (no
       error thrown for failure)
 
-        Open4.spawn 'ruby -e "exit 42"'                          # raises 
-        status = Open4.spawn 'ruby -e "exit 42"', :status=>true  # ok 
+        Open4.spawn 'ruby -e "exit 42"'                          # raises
+        status = Open4.spawn 'ruby -e "exit 42"', :status=>true  # ok
 
       note, however, that any SpawnError does in fact contain the failed
       status so, even when they are thrown, error status can be retrieved:
@@ -349,9 +349,9 @@ HISTORY
 
         cmd = 'command_that_produce_out_at_one_second_intervals'
 
-        open4.spawn cmd, :stdout_timeout => 2 
+        open4.spawn cmd, :stdout_timeout => 2
 
-      or 
+      or
 
         cmd = 'command_that_should_complete_in_about_one_minute'
 
@@ -390,7 +390,7 @@ HISTORY
 
   0.1.0 :
     - fixed docs to correctly show return value of popen4 (pid first not last).
-      thanks Stefanie Tellex <stefie10@alum.mit.edu> for catching this. 
+      thanks Stefanie Tellex <stefie10@alum.mit.edu> for catching this.
   0.0.0 :
     - initial version
 
